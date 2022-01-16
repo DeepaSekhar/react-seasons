@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useEffect } from "react";
+import ReactDom from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  function add(num1, num2) {
+    const sum = num1 + num2;
+    return sum;
+  }
+  useEffect(() => {
+    console.log(add(1, 2));
+  }, [add]);
+  return (
+    <div>
+      <input type="text" id="num1" name="num1" />
+    </div>
+  );
+};
+ReactDom.render(<App />, document.querySelector("#root"));
